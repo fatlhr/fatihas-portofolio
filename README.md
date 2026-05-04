@@ -1,46 +1,53 @@
-# Astro Starter Kit: Basics
+# Fatiha Rahmat - Mobile Developer Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+A minimalist, responsive, and SEO-friendly personal portfolio website built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The design is heavily inspired by the classic "Typewriter Document" aesthetic and the popular [AstroPaper](https://github.com/satnaing/astro-paper) theme.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Features
 
-## 🚀 Project Structure
+- **Minimalist Design**: Clean, monochrome typewriter aesthetic focusing on content and readability.
+- **Dark Mode**: Built-in light/dark theme toggle saving preferences in `localStorage`.
+- **Fast & SEO Friendly**: Leveraging Astro's zero-JS by default architecture for optimal performance.
+- **Markdown Blog**: Included setup for writing blog posts easily using Markdown.
+- **Responsive**: Fully responsive design for mobile, tablet, and desktop viewing.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠 Tech Stack
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- **Framework**: [Astro v6](https://astro.build/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Typography**: IBM Plex Mono (Google Fonts)
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 💻 Local Development
 
-## 🧞 Commands
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/fatlhr/fatihas-portofolio.git
+   cd fatihas-portofolio
+   ```
 
-All commands are run from the root of the project, from a terminal:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:4321` (or whichever port is assigned).
 
-## 👀 Want to learn more?
+## 📁 Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `src/components/`: Reusable UI components (Header, Footer, Sections, etc.)
+- `src/layouts/`: Base HTML layouts and Blog layout.
+- `src/pages/`: Astro pages defining the routes (e.g., `index.astro`, `blogs.astro`).
+- `src/pages/blogs/`: Markdown files for your blog posts.
+- `src/data/`: Data files (e.g., `projects.js`).
+- `src/styles/`: Global CSS and Tailwind configurations.
+- `public/`: Static assets like images and your `resume.pdf`.
+
+## 🚢 Deployment
+
+This Astro project is ready to be deployed on any static hosting provider like **Vercel**, **Netlify**, or **GitHub Pages**. Simply connect your repository and set the build command to `npm run build`.
+
+---
+*Developed by Fatiha Rahmat.*
