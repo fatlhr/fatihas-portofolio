@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@theme {
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --color-bg: #fdfdfd;
+    --color-text: #24272e;
+    --color-heading: #1f2328;
+    --color-border: rgba(229, 231, 235, 0.8);
+    --color-accent: #005bb3;
+  }
+  
+  html.dark {
+    --color-bg: #24272e;
+    --color-text: #fbfbfb;
+    --color-heading: #ffffff;
+    --color-border: rgba(75, 85, 99, 0.8);
+    --color-accent: #4da6ff;
+  }
+
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    @apply font-mono scroll-smooth antialiased;
+  }
+  body {
+    @apply text-base leading-relaxed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    @apply font-bold tracking-tight; /* Menambahkan tracking-tight agar huruf lebih rapat */
+  }
+  h1 { @apply text-4xl sm:text-5xl; font-weight: 700; } /* Memaksa font-weight 700 */
+  h2 { @apply text-2xl sm:text-3xl; font-weight: 700; }
+  h3 { @apply text-xl sm:text-2xl; font-weight: 600; }
+  p {
+    @apply mb-4;
+  }
+  a {
+    color: inherit;
+    @apply transition-colors duration-200;
+  }
+  hr {
+    border-top: 1px dashed var(--color-border); /* Mengubah hr menjadi dashed seperti referensi */
+    @apply my-8;
+  }
+}
+
+@layer components {
+  .main-container {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+  .link-underline {
+    @apply border-b border-dashed border-current hover:border-solid pb-0.5; /* Gaya underline spesifik AstroPaper */
+  }
+  .text-accent {
+    color: var(--color-accent);
+  }
+}
