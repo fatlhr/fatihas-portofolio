@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/profile.js';
 import HeroSection from '../components/HeroSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
@@ -8,7 +9,7 @@ import NowSection from '../components/NowSection.astro';
 import ContactSection from '../components/ContactSection.astro';
 ---
 
-<BaseLayout title="Fatih's Portfolio - Mobile Developer" description="Portfolio of Fatih, a passionate mobile developer">
+<BaseLayout title={`${profile.name} - ${profile.role}`} description={`Portfolio of ${profile.name}, a Flutter mobile engineer with experience across banking, merchant services, lending, agrifood, and freelance projects.`}>
   <HeroSection />
   <hr />
   <AboutSection />

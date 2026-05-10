@@ -1,53 +1,65 @@
-# Fatiha Rahmat - Mobile Developer Portfolio
+# Fatiha Rahmat - Mobile Engineer Portfolio
 
-A minimalist, responsive, and SEO-friendly personal portfolio website built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). The design is heavily inspired by the classic "Typewriter Document" aesthetic and the popular [AstroPaper](https://github.com/satnaing/astro-paper) theme.
+A minimalist personal portfolio built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). Content is kept in reusable components and data files so the site can be built for local preview, GitHub Pages, or another static host without machine-specific paths.
 
-## 🚀 Features
+## Features
 
-- **Minimalist Design**: Clean, monochrome typewriter aesthetic focusing on content and readability.
-- **Dark Mode**: Built-in light/dark theme toggle saving preferences in `localStorage`.
-- **Fast & SEO Friendly**: Leveraging Astro's zero-JS by default architecture for optimal performance.
-- **Markdown Blog**: Included setup for writing blog posts easily using Markdown.
-- **Responsive**: Fully responsive design for mobile, tablet, and desktop viewing.
+- Portfolio sections for profile, experience, projects, resume, current focus, and contact.
+- Project content stored in `src/data/projects.js`.
+- Base-path aware links and assets through `src/utils/paths.js`.
+- Static resume and project assets served from `public/`.
+- Markdown blog support under `src/pages/blogs/`.
+- GitHub Pages workflow included in `.github/workflows/deploy.yml`.
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Framework**: [Astro v6](https://astro.build/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Typography**: IBM Plex Mono (Google Fonts)
+- Framework: [Astro v6](https://astro.build/)
+- Styling: [Tailwind CSS v4](https://tailwindcss.com/)
+- Typography: IBM Plex Mono
 
-## 💻 Local Development
+## Project Structure
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/fatlhr/fatihas-portofolio.git
-   cd fatihas-portofolio
-   ```
+- `src/components/`: reusable UI sections and cards.
+- `src/data/`: portfolio data such as projects.
+- `src/layouts/`: shared page layouts.
+- `src/pages/`: Astro routes and Markdown blog posts.
+- `src/styles/`: global CSS.
+- `src/utils/`: deploy-safe URL helpers.
+- `public/`: static assets copied directly to the build output.
+- `.github/workflows/`: GitHub Pages deployment workflow.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## Environment
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   The site will be available at `http://localhost:4321` (or whichever port is assigned).
+Copy `.env.example` when you need custom deployment values:
 
-## 📁 Project Structure
+```bash
+cp .env.example .env
+```
 
-- `src/components/`: Reusable UI components (Header, Footer, Sections, etc.)
-- `src/layouts/`: Base HTML layouts and Blog layout.
-- `src/pages/`: Astro pages defining the routes (e.g., `index.astro`, `blogs.astro`).
-- `src/pages/blogs/`: Markdown files for your blog posts.
-- `src/data/`: Data files (e.g., `projects.js`).
-- `src/styles/`: Global CSS and Tailwind configurations.
-- `public/`: Static assets like images and your `resume.pdf`.
+Default deployment values:
 
-## 🚢 Deployment
+```bash
+SITE_URL=https://fatlhr.github.io
+BASE_PATH=/fatihas-portofolio
+```
 
-This Astro project is ready to be deployed on any static hosting provider like **Vercel**, **Netlify**, or **GitHub Pages**. Simply connect your repository and set the build command to `npm run build`.
+For root-domain deployments such as Vercel or Netlify, set `BASE_PATH=/`.
 
----
-*Developed by Fatiha Rahmat.*
+## Commands
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+## Deployment
+
+GitHub Pages is configured through `.github/workflows/deploy.yml`. The workflow uses GitHub Pages' generated `site` and `base_path` values during build, so deployment does not depend on local filesystem paths.
+
+For other static hosts:
+
+1. Set the build command to `npm run build`.
+2. Set the publish directory to `dist`.
+3. Configure `SITE_URL` and `BASE_PATH` for the target host.

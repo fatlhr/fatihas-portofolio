@@ -1,4 +1,5 @@
 ---
+import { currentFocus, currentRoles } from '../data/profile.js';
 ---
 
 <section id="now" class="py-6">
@@ -9,24 +10,17 @@
     <div>
       <h3 class="text-lg font-bold mb-3">Current Roles</h3>
       <ul class="list-disc list-inside space-y-2 text-base">
-        <li>Mobile Developer (Flutter) at PT Bank Multiarta Sentosa Tbk</li>
-        <li>Freelance Mobile Developer (Flutter Android & iOS)</li>
+        {currentRoles.map((role) => <li>{role}</li>)}
       </ul>
     </div>
 
     <div>
       <h3 class="text-lg font-bold mb-3">Current Focus & Expertise</h3>
       <ul class="list-disc list-inside space-y-2 text-base">
-        <li>Deep expertise in Flutter & Dart for cross-platform development</li>
-        <li>State management for scalable mobile architecture</li>
-        <li>UI/UX design principles for intuitive mobile experiences</li>
-        <li>Product management — translating business needs into roadmaps</li>
-        <li>CI/CD integration & DevOps practices for automated delivery</li>
-        <li>Handling legacy code and refactoring for maintainability</li>
-        <li>Debugging complex issues in large production codebases</li>
+        {currentFocus.map((focus) => <li>{focus}</li>)}
       </ul>
     </div>
   </div>
   
-  <p class="text-xs text-gray-500 mt-8 font-mono">Updated: May 4, 2026</p>
+  <p class="text-xs text-gray-500 mt-8 font-mono">Updated: May 10, 2026</p>
 </section>

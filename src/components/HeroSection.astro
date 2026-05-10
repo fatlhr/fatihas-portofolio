@@ -1,26 +1,21 @@
 ---
+import { profile } from '../data/profile.js';
 ---
 <section id="hero" class="py-6 sm:py-8">
   <h1 class="text-4xl sm:text-5xl mb-6 flex items-center gap-3">
-    Fatiha Rahmat
+    {profile.name}
     <a href="#" aria-label="rss feed" class="text-accent hover:opacity-70 transition">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
     </a>
   </h1>
-  <p class="font-medium text-lg">
-    Mobile(Flutter) Developer with 2+ years of experience in developing cross-platform mobile applications for the banking and agrifood industries.
-  </p>
-  <p class="font-medium text-lg">
-    Passionate about using technology to build innovative and user-friendly applications.
-  </p>
-  <p class="font-medium text-lg mt-6">
-    Read the blog posts or check <a href="#" class="link-underline">README</a> for more info.
-  </p>
+  {profile.summary.map((line, index) => (
+    <p class={`font-medium text-lg ${index === 2 ? 'mt-6' : ''}`}>{line}</p>
+  ))}
   <div class="mt-8 flex items-center gap-x-4 text-sm font-medium opacity-80">
     <span>Social Links:</span>
     <div class="flex gap-x-3">
-      <a href="https://linkedin.com/in/fatiharahmat" target="_blank" class="hover:opacity-70 transition" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="mailto:fatiharahmat257@gmail.com" class="hover:opacity-70 transition" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+      <a href={profile.linkedin} target="_blank" class="hover:opacity-70 transition" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href={`mailto:${profile.email}`} class="hover:opacity-70 transition" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
     </div>
   </div>
 </section>

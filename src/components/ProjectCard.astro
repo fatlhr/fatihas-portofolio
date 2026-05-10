@@ -1,13 +1,17 @@
 ---
+import { withBasePath } from '../utils/paths.js';
+
 interface Props {
   title: string;
   description: string;
   subtitle?: string;
   githubUrl?: string;
   imageUrl?: string;
+  technologies?: string[];
 }
 
-const { title, description, subtitle, githubUrl, imageUrl } = Astro.props;
+const { title, description, subtitle, githubUrl, imageUrl, technologies = [] } = Astro.props;
+const imageSrc = imageUrl ? withBasePath(imageUrl) : undefined;
 ---
 
 <div class="mb-10 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start group">
@@ -22,12 +26,21 @@ const { title, description, subtitle, githubUrl, imageUrl } = Astro.props;
     <p class="text-sm leading-relaxed">
       {description}
     </p>
+    {technologies.length > 0 && (
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {technologies.map((technology) => (
+          <li class="border border-current/20 px-2 py-1 text-xs font-mono opacity-80">
+            {technology}
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
   
-  {imageUrl && (
+  {imageSrc && (
     <a href={githubUrl || "#"} target="_blank" class="block w-full sm:w-1/3 shrink-0 overflow-hidden border border-gray-200/50 hover:border-gray-300 transition-colors">
       <img 
-        src={imageUrl} 
+        src={imageSrc}
         alt={`Preview of ${title}`} 
         class="w-full h-auto object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
       />

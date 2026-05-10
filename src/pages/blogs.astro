@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBasePath } from '../utils/paths.js';
 
 const blogs = [
   {
     title: "State Management in Flutter: Riverpod vs BLoC",
     date: "May 1, 2026",
     description: "A deep dive into choosing the right state management solution for your next scalable mobile app.",
-    url: "/blogs/state-management-flutter"
+    url: withBasePath('blogs/state-management-flutter')
   },
   {
     title: "Building Responsive UIs in Flutter",
@@ -43,7 +44,7 @@ const blogs = [
       ))}
     </div>
     <div class="mt-12">
-      <a href="/" class="link-underline font-bold text-accent">
+      <a href={withBasePath()} class="link-underline font-bold text-accent">
         &larr; Back to Home
       </a>
     </div>

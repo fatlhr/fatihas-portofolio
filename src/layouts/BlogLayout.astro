@@ -1,6 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { withBasePath } from '../utils/paths.js';
+
 const { frontmatter } = Astro.props;
+const blogsUrl = withBasePath('blogs');
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
@@ -18,7 +21,7 @@ const { frontmatter } = Astro.props;
     </div>
     
     <div class="mt-16">
-      <a href="/blogs" class="link-underline font-bold text-accent">
+      <a href={blogsUrl} class="link-underline font-bold text-accent">
         &larr; Back to Blogs
       </a>
     </div>

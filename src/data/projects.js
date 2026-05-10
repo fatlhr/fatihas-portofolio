@@ -1,10 +1,19 @@
 export const projects = [
   {
+    title: "Bebas & BebasMaju",
+    description:
+      "Mobile banking, lending, and merchant applications covering loan application flow, approval tracking, repayment management, QR payments, invoice generation, and transaction tracking across Android and iOS.",
+    technologies: ["Flutter (Android, iOS)", "REST API", "State Management"],
+    githubUrl: "#",
+    company: "PT Bank Multiarta Sentosa Tbk (Bank MAS)",
+    imageUrl: "/images/project-4.svg",
+  },
+  {
     title: "JForm",
     description:
-      "A form-based digital task management application (Web and Mobile) with a workflow, significantly improving task efficiency and driving enhanced cross-departmental communication.",
+      "The company's first digital forms-based task management system for Android, iOS, and web, with workflow, notification, and communication features to reduce reliance on third-party tools.",
     technologies: [
-      "Flutter(Android, IOS, Web)",
+      "Flutter (Android, iOS, Web)",
       "REST API",
       "MongoDB",
       "Firebase Notification",
@@ -17,8 +26,8 @@ export const projects = [
   {
     title: "NoLimit Pemda",
     description:
-      "A mobile application for monitoring online media, especially social media, and analytical tools.",
-    technologies: ["Flutter (Android, IOS)", "REST API"],
+      "Mobile application for monitoring online media, especially social media, with analytical tools for local government use cases.",
+    technologies: ["Flutter (Android, iOS)", "REST API"],
     githubUrl: "#",
     company: "Freelance",
     imageUrl: "/images/project-2.svg",
@@ -26,9 +35,9 @@ export const projects = [
   {
     title: "Smartcampus BRI",
     description:
-      "Provided by BRI, serves as non-academic system management in universities. Has 3 main features: Smart Rent, Smart Library and Crowdfunding. Integrated with BRI Mobile.",
+      "University non-academic management mobile app integrated with the bank's mobile ecosystem, covering rental, library, and crowdfunding modules.",
     technologies: [
-      "Flutter (Android, IOS)",
+      "Flutter (Android, iOS)",
       "REST API",
       "Firebase Notification",
       "PostgreSQL",

@@ -1,12 +1,15 @@
 ---
+import { withBasePath } from '../utils/paths.js';
+
+const resumeUrl = withBasePath('resume.pdf');
 ---
 <section id="resume" class="py-6">
   <h2 class="text-2xl font-bold tracking-wide mb-8">Resume</h2>
   <p class="text-base leading-relaxed">
-    Unduh resume lengkap saya dalam format PDF untuk informasi lebih detail mengenai pengalaman dan kualifikasi saya.
+    Download the full resume in PDF format for more details about my experience and qualifications.
   </p>
   <div class="mt-6">
-    <a href="/resume.pdf" download class="link-underline font-bold text-accent">
+    <a href={resumeUrl} download class="link-underline font-bold text-accent">
       Download Resume &rarr;
     </a>
   </div>

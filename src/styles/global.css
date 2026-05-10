@@ -57,6 +57,9 @@
   .link-underline {
     @apply border-b border-dashed border-current hover:border-solid pb-0.5; /* Gaya underline spesifik AstroPaper */
   }
+  .nav-link {
+    @apply inline-flex items-center min-h-11 px-1;
+  }
   .text-accent {
     color: var(--color-accent);
   }
