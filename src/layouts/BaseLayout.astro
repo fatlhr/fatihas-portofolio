@@ -7,10 +7,23 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogType?: string;
+  ogImage?: string;
+  jsonLd?: object;
 }
 
-const { title = "Fatiha Rahmat - Mobile Developer", description = "Portfolio of Fatiha Rahmat" } = Astro.props;
+const {
+  title = "Fatiha Rahmat - Mobile Developer",
+  description = "Portfolio of Fatiha Rahmat, a Flutter Mobile Engineer with 3+ years of experience in banking, fintech, and cross-platform mobile development.",
+  ogType = "website",
+  ogImage,
+  jsonLd,
+} = Astro.props;
+
 const faviconUrl = withBasePath('favicon.svg');
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fatiharahmat.dev';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
 ---
 
 <!doctype html>
@@ -19,8 +32,29 @@ const faviconUrl = withBasePath('favicon.svg');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="Fatiha Rahmat" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Fatiha Rahmat" />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={faviconUrl} />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {

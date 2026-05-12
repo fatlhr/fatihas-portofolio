@@ -4,22 +4,45 @@ import { withBasePath } from '../utils/paths.js';
 
 const { frontmatter } = Astro.props;
 const blogsUrl = withBasePath('blogs');
+
+const pubDateIso = new Date(frontmatter.pubDate).toISOString();
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fatiharahmat.dev';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "datePublished": pubDateIso,
+  "author": {
+    "@type": "Person",
+    "name": "Fatiha Rahmat",
+    "url": siteUrl
+  },
+  "url": canonicalUrl,
+};
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ogType="article"
+  jsonLd={articleJsonLd}
+>
   <article class="py-8 max-w-3xl mx-auto">
     <header class="mb-10">
       <h1 class="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">{frontmatter.title}</h1>
       <div class="flex items-center gap-x-2 text-sm opacity-70 font-mono">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-        <time>{frontmatter.pubDate}</time>
+        <time datetime={pubDateIso}>{frontmatter.pubDate}</time>
       </div>
     </header>
-    
+
     <div class="blog-content leading-relaxed">
       <slot />
     </div>
-    
+
     <div class="mt-16">
       <a href={blogsUrl} class="link-underline font-bold text-accent">
         &larr; Back to Blogs
@@ -29,7 +52,6 @@ const blogsUrl = withBasePath('blogs');
 </BaseLayout>
 
 <style is:global>
-  /* Styling khusus untuk tag HTML yang dihasilkan oleh Markdown */
   .blog-content h2 {
     font-size: 1.5rem;
     font-weight: 700;
