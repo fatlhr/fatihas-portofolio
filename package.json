@@ -12,12 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.2.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.13",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.3.0"
   }
 }
