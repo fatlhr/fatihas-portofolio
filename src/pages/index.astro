@@ -12,7 +12,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": profile.name,
-  "jobTitle": profile.role,
+  "jobTitle": "Flutter Developer and Mobile Engineer",
   "url": "https://fatiharahmat.dev",
   "email": profile.email,
   "sameAs": [profile.linkedin],
@@ -21,13 +21,21 @@ const personJsonLd = {
     "addressLocality": "Jakarta",
     "addressCountry": "ID"
   },
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Mobile Engineer",
+    "occupationLocation": {
+      "@type": "City",
+      "name": "Jakarta"
+    }
+  },
   "knowsAbout": ["Flutter", "Dart", "Android", "iOS", "Mobile Development", "Riverpod", "BLoC", "Firebase"]
 };
 ---
 
 <BaseLayout
-  title={`${profile.name} - ${profile.role}`}
-  description={`Portfolio of ${profile.name}, a Flutter mobile engineer with experience across banking, merchant services, lending, agrifood, and freelance projects.`}
+  title={`${profile.name} - Flutter Developer and Mobile Engineer`}
+  description={`${profile.name} is a Flutter Developer and Mobile Engineer in Jakarta, Indonesia, building Android and iOS apps across banking, fintech, merchant, and product teams.`}
   jsonLd={personJsonLd}
 >
   <HeroSection />

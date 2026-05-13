@@ -3,7 +3,6 @@ export const profile = {
   role: 'Mobile Engineer',
   location: 'Jakarta, Indonesia',
   email: 'fatiharahmat257@gmail.com',
-  phone: '(+62) 82272826930',
   linkedin: 'https://linkedin.com/in/fatiharahmat',
   summary: [
     'Mobile Engineer with 3+ years of experience building Flutter applications across banking, merchant services, lending, agrifood, and freelance domains.',

@@ -12,7 +12,16 @@ import { profile } from '../data/profile.js';
         {profile.email}
       </a>
     </div>
-    <div>{profile.phone}</div>
+    <div>
+      <a
+        href={profile.linkedin}
+        target="_blank"
+        rel="noreferrer"
+        class="link-underline font-bold text-accent"
+      >
+        LinkedIn
+      </a>
+    </div>
     <div class="opacity-70">{profile.location}</div>
   </div>
 </section>
