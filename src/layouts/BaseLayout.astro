@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { withBasePath } from '../utils/paths.js';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -56,7 +57,7 @@ const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
     <script is:inline>
-      const theme = (() => {
+      const getPreferredTheme = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
@@ -64,17 +65,55 @@ const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
           return 'dark';
         }
         return 'light';
-      })();
+      };
 
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
+      const applyTheme = (theme) => {
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+        window.localStorage.setItem('theme', theme);
+      };
+
+      applyTheme(getPreferredTheme());
+    </script>
+
+    <script is:inline>
+      const toggleTheme = () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        window.localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      };
+
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const button = target.closest('#theme-toggle');
+        if (!button) return;
+        event.preventDefault();
+        toggleTheme();
+      });
+
+      const syncThemeAfterTransition = () => {
+        const saved = window.localStorage.getItem('theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+          return;
+        }
         document.documentElement.classList.add('dark');
+      };
+
+      document.addEventListener('astro:after-swap', syncThemeAfterTransition);
+      document.addEventListener('astro:page-load', syncThemeAfterTransition);
+      if (document.readyState !== 'loading') {
+        syncThemeAfterTransition();
+      } else {
+        document.addEventListener('DOMContentLoaded', syncThemeAfterTransition, { once: true });
       }
-      window.localStorage.setItem('theme', theme);
     </script>
   </head>
   <body>
+    <ClientRouter />
     <Header />
     <main class="main-container">
       <slot />

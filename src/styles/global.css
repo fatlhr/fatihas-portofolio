@@ -49,6 +49,43 @@
     border-top: 1px dashed var(--color-border); /* Mengubah hr menjadi dashed seperti referensi */
     @apply my-8;
   }
+
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes page-exit {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  ::view-transition-old(root) {
+    animation: page-exit 180ms ease both;
+  }
+
+  ::view-transition-new(root) {
+    animation: page-enter 260ms ease both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+    }
+  }
 }
 
 @layer components {
@@ -66,13 +103,25 @@
   }
   .hero-document {
     border: 1px solid var(--color-border);
-    background: color-mix(in srgb, var(--color-bg) 94%, var(--color-accent) 6%);
+    background-color: color-mix(in srgb, var(--color-bg) 95%, var(--color-accent) 5%);
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-accent) 7%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-accent) 7%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 28px 28px;
     @apply px-4 py-5 sm:px-6 sm:py-6;
   }
 
   .hero-document__meta {
-    border-bottom: 1px dashed var(--color-border);
-    @apply flex flex-col gap-2 pb-4 font-mono text-xs font-medium uppercase tracking-wide opacity-70 sm:flex-row sm:items-center sm:justify-between;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-accent) 24%, var(--color-border) 76%);
+    @apply flex flex-col gap-2 pb-4 font-mono text-xs font-medium uppercase tracking-wide opacity-90 sm:flex-row sm:items-center sm:justify-between;
   }
 
   .hero-document__body {
@@ -97,8 +146,15 @@
   }
 
   .hero-document__action {
-    border: 1px solid var(--color-border);
-    @apply inline-flex min-h-11 items-center gap-2 px-3 font-mono text-sm font-bold hover:border-current;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 32%, var(--color-border) 68%);
+    background: color-mix(in srgb, var(--color-bg) 88%, var(--color-accent) 12%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 16%, transparent);
+    @apply inline-flex min-h-11 items-center gap-2 px-3 font-mono text-sm font-bold;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      box-shadow 160ms ease,
+      color 160ms ease;
   }
 
   .hero-document__action svg {
@@ -106,11 +162,22 @@
   }
 
   .hero-document__action:hover {
+    border-color: color-mix(in srgb, var(--color-accent) 65%, var(--color-border) 35%);
+    background: color-mix(in srgb, var(--color-bg) 82%, var(--color-accent) 18%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 24%, transparent);
     color: var(--color-accent);
   }
 
+  .hero-document__action:focus-visible {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 30%, transparent),
+      0 0 0 2px color-mix(in srgb, var(--color-bg) 65%, transparent),
+      0 0 0 3px color-mix(in srgb, var(--color-accent) 58%, transparent);
+  }
+
   .hero-document__index {
-    border-left: 1px dashed var(--color-border);
+    border-left: 1px dashed color-mix(in srgb, var(--color-accent) 24%, var(--color-border) 76%);
     @apply pl-5 font-mono text-sm;
   }
 
@@ -134,7 +201,7 @@
   @media (max-width: 1023px) {
     .hero-document__index {
       border-left: 0;
-      border-top: 1px dashed var(--color-border);
+      border-top: 1px dashed color-mix(in srgb, var(--color-accent) 24%, var(--color-border) 76%);
       @apply pl-0 pt-5;
     }
   }
