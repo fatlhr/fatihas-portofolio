@@ -1,21 +1,49 @@
 ---
-import { profile } from '../data/profile.js';
+import { heroHighlights, profile } from '../data/profile.js';
+import { withBasePath } from '../utils/paths.js';
+
+const resumeUrl = withBasePath('resume.pdf');
 ---
-<section id="hero" class="py-6 sm:py-8">
-  <h1 class="text-4xl sm:text-5xl mb-6 flex items-center gap-3">
-    {profile.name}
-    <a href="#" aria-label="rss feed" class="text-accent hover:opacity-70 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
-    </a>
-  </h1>
-  {profile.summary.map((line, index) => (
-    <p class={`font-medium text-lg ${index === 2 ? 'mt-6' : ''}`}>{line}</p>
-  ))}
-  <div class="mt-8 flex items-center gap-x-4 text-sm font-medium opacity-80">
-    <span>Social Links:</span>
-    <div class="flex gap-x-3">
-      <a href={profile.linkedin} target="_blank" class="hover:opacity-70 transition" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href={`mailto:${profile.email}`} class="hover:opacity-70 transition" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+<section id="hero" class="hero-document py-6 sm:py-8">
+  <div class="hero-document__meta" aria-label="Portfolio metadata">
+    <span>{profile.role}</span>
+    <span>{profile.location} / Portfolio 2026</span>
+  </div>
+
+  <div class="hero-document__body">
+    <div class="hero-document__intro">
+      <p class="hero-document__eyebrow">Filed under: Flutter, Android, iOS, product delivery</p>
+      <h1 class="mb-6">{profile.name}</h1>
+
+      <div class="hero-document__summary">
+        {profile.summary.map((line) => (
+          <p class="font-medium text-base sm:text-lg">{line}</p>
+        ))}
+      </div>
+
+      <div class="hero-document__actions" aria-label="Primary contact links">
+        <a href={profile.linkedin} target="_blank" rel="noreferrer" class="hero-document__action">
+          LinkedIn
+        </a>
+        <a href={`mailto:${profile.email}`} class="hero-document__action">
+          Email
+        </a>
+        <a href={resumeUrl} download class="hero-document__action">
+          Resume PDF
+        </a>
+      </div>
     </div>
+
+    <aside class="hero-document__index" aria-label="Mobile engineering quick index">
+      <p class="hero-document__index-title">Quick index</p>
+      <ol>
+        {heroHighlights.map((highlight, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            {highlight}
+          </li>
+        ))}
+      </ol>
+    </aside>
   </div>
 </section>

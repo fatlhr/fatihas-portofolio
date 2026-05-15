@@ -11,6 +11,14 @@ export const profile = {
   ],
 };
 
+export const heroHighlights = [
+  '3+ years mobile',
+  'Flutter / Dart',
+  'Android + iOS',
+  'Banking + merchant apps',
+  'REST API + release work',
+];
+
 export const experiences = [
   {
     company: 'PT Bank Multiarta Sentosa Tbk (Bank MAS)',

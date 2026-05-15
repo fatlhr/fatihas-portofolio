@@ -63,4 +63,76 @@
   .text-accent {
     color: var(--color-accent);
   }
+  .hero-document {
+    border: 1px solid var(--color-border);
+    background:
+      linear-gradient(90deg, transparent 0 4.25rem, var(--color-border) 4.25rem calc(4.25rem + 1px), transparent calc(4.25rem + 1px)),
+      color-mix(in srgb, var(--color-bg) 94%, var(--color-accent) 6%);
+    @apply px-4 py-5 sm:px-6 sm:py-6;
+  }
+
+  .hero-document__meta {
+    border-bottom: 1px dashed var(--color-border);
+    @apply flex flex-col gap-2 pb-4 text-xs font-medium uppercase tracking-wide opacity-70 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .hero-document__body {
+    @apply grid gap-8 pt-8 lg:grid-cols-[minmax(0,1fr)_17rem];
+  }
+
+  .hero-document__eyebrow {
+    color: var(--color-accent);
+    @apply mb-4 text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .hero-document__summary {
+    @apply max-w-2xl;
+  }
+
+  .hero-document__summary p:last-child {
+    @apply mb-0;
+  }
+
+  .hero-document__actions {
+    @apply mt-8 flex flex-wrap gap-3;
+  }
+
+  .hero-document__action {
+    border: 1px solid var(--color-border);
+    @apply inline-flex min-h-11 items-center px-3 text-sm font-bold hover:border-current;
+  }
+
+  .hero-document__action:hover {
+    color: var(--color-accent);
+  }
+
+  .hero-document__index {
+    border-left: 1px dashed var(--color-border);
+    @apply pl-5 text-sm;
+  }
+
+  .hero-document__index-title {
+    @apply mb-4 text-xs font-bold uppercase tracking-wide opacity-70;
+  }
+
+  .hero-document__index ol {
+    @apply space-y-3;
+  }
+
+  .hero-document__index li {
+    @apply flex gap-3;
+  }
+
+  .hero-document__index li span {
+    color: var(--color-accent);
+    @apply shrink-0 font-bold;
+  }
+
+  @media (max-width: 1023px) {
+    .hero-document__index {
+      border-left: 0;
+      border-top: 1px dashed var(--color-border);
+      @apply pl-0 pt-5;
+    }
+  }
 }
