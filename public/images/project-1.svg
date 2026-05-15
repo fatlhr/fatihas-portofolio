@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <rect width="800" height="600" fill="#f8fafc" />
-  <rect x="40" y="40" width="720" height="520" rx="24" fill="#e2e8f0" />
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="38" fill="#1e293b">Project Preview</text>
+  <rect x="36" y="36" width="728" height="528" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <text x="60" y="84" font-family="IBM Plex Mono, monospace" font-size="22" fill="#0f172a">PROJECT EVIDENCE</text>
+  <text x="468" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#475569">JAPFA COMFEED INDONESIA</text>
+  <line x1="60" y1="108" x2="740" y2="108" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <text x="60" y="160" font-family="IBM Plex Mono, monospace" font-size="38" fill="#0f172a">Internal Workflow App</text>
+  <text x="60" y="204" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">forms / approvals / notifications / communication</text>
+  <rect x="60" y="248" width="300" height="236" fill="#f8fafc" stroke="#cbd5e1" />
+  <rect x="84" y="274" width="252" height="30" fill="#e2e8f0" />
+  <rect x="84" y="322" width="252" height="54" fill="#ffffff" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <rect x="84" y="392" width="252" height="54" fill="#ffffff" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <rect x="388" y="248" width="352" height="236" fill="#eff6ff" stroke="#93c5fd" />
+  <text x="416" y="290" font-family="IBM Plex Mono, monospace" font-size="18" fill="#0f172a">delivery notes</text>
+  <text x="416" y="332" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">task execution flow</text>
+  <text x="416" y="368" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">approval handoff</text>
+  <text x="416" y="404" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">push notification</text>
+  <text x="416" y="440" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">team communication</text>
 </svg>

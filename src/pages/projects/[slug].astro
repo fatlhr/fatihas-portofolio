@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/projects.js';
+import { withBasePath } from '../../utils/paths.js';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const visuals = (project.visuals ?? []).map((visual) => ({
+  ...visual,
+  resolvedImageUrl: visual.imageUrl
+    ? (visual.imageUrl.startsWith('http://') || visual.imageUrl.startsWith('https://')
+        ? visual.imageUrl
+        : withBasePath(visual.imageUrl))
+    : '',
+}));
+const showVisuals = !project.isInternal && visuals.length > 0;
+const projectLinks = project.projectLinks ?? [];
+---
+
+<BaseLayout
+  title={`${project.title} - Fatiha Rahmat`}
+  description={project.description}
+>
+  <section class="project-detail">
+    <a href={withBasePath()} class="project-detail__back link-underline">
+      &larr; Back to Home
+    </a>
+
+    <div class="project-detail__header">
+      <h1>{project.title}</h1>
+      <p class="project-detail__company">{project.company}</p>
+    </div>
+
+    {showVisuals && (
+      <div class="project-detail__section project-detail__section--artifact-first">
+        <h2>Project Visuals</h2>
+        <div class="project-visuals">
+          {visuals.map((visual) => (
+            <figure class="project-visuals__item">
+              <div class:list={["project-visuals__frame", !visual.resolvedImageUrl && "project-visuals__frame--empty"]}>
+                {visual.resolvedImageUrl ? (
+                  <img src={visual.resolvedImageUrl} alt={`${visual.title} preview for ${project.title}`} />
+                ) : (
+                  <div class="project-visuals__placeholder" aria-hidden="true">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                )}
+              </div>
+              <figcaption>{visual.title}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class:list={["project-detail__section", !showVisuals && "project-detail__section--artifact-first"]}>
+      <p class="project-detail__summary">{project.description}</p>
+
+      <div class="project-detail__meta">
+        <div class="project-detail__meta-item">
+          <span>Role</span>
+          <p>{project.role}</p>
+        </div>
+        <div class="project-detail__meta-item">
+          <span>Scope</span>
+          <p>{project.scope}</p>
+        </div>
+      </div>
+
+      {projectLinks.length > 0 && (
+        <div class="project-links project-links--detail">
+          <span class="project-links__label">Project links</span>
+          <div class="project-links__list">
+            {projectLinks.map((link) => (
+              <a href={link.href} class="project-links__item" target="_blank" rel="noreferrer">
+                {link.label === 'Google Play' ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4l13 8-13 8V4z"/>
+                    <path d="M17 12h3"/>
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15.5 3.5c-1 .6-1.8 1.6-2.1 2.8"/>
+                    <path d="M8.4 13.4c0-2.8 2-4.5 4.1-4.5 1 0 1.8.3 2.5.8.5.3 1.2.3 1.8 0"/>
+                    <path d="M16.2 19.7c-.8.8-1.7 1.3-2.7 1.3s-1.6-.4-2.5-.4-1.6.4-2.5.4c-1 0-1.8-.5-2.6-1.3C4.3 18.1 3 15.4 3 13c0-3.4 2.1-5.7 5.1-5.7"/>
+                  </svg>
+                )}
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+    <div class="project-detail__section">
+      <h2>Evidence Notes</h2>
+      <div class="project-evidence">
+        {project.evidencePoints.map((point, index) => (
+          <article class="project-evidence__item">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{point.title}</h3>
+            <p>{point.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="project-detail__section">
+      <h2>Tags</h2>
+      <ul class="project-detail__tags">
+        {project.technologies.map((technology) => (
+          <li>{technology}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

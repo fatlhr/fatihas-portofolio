@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <rect width="800" height="600" fill="#f8fafc" />
-  <rect x="40" y="40" width="720" height="520" rx="24" fill="#e2e8f0" />
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="38" fill="#1e293b">Project Preview</text>
+  <rect x="36" y="36" width="728" height="528" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <text x="60" y="84" font-family="IBM Plex Mono, monospace" font-size="22" fill="#0f172a">PROJECT EVIDENCE</text>
+  <text x="632" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#475569">FREELANCE</text>
+  <line x1="60" y1="108" x2="740" y2="108" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <text x="60" y="160" font-family="IBM Plex Mono, monospace" font-size="38" fill="#0f172a">NoLimit Pemda</text>
+  <text x="60" y="204" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">monitoring / issue visibility / analytics</text>
+  <rect x="60" y="248" width="680" height="92" fill="#eff6ff" stroke="#93c5fd" />
+  <rect x="88" y="276" width="166" height="36" fill="#dbeafe" />
+  <rect x="278" y="276" width="166" height="36" fill="#dbeafe" />
+  <rect x="468" y="276" width="166" height="36" fill="#dbeafe" />
+  <rect x="60" y="370" width="328" height="126" fill="#f8fafc" stroke="#cbd5e1" />
+  <rect x="412" y="370" width="328" height="126" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="88" y="416" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">social channel watch</text>
+  <text x="88" y="452" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">issue escalation</text>
+  <text x="440" y="416" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">lightweight analytics</text>
+  <text x="440" y="452" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">mobile check-in</text>
 </svg>

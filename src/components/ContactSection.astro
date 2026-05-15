@@ -8,7 +8,11 @@ import { profile } from '../data/profile.js';
   </p>
   <div class="space-y-2">
     <div>
-      <a href={`mailto:${profile.email}`} class="link-underline font-bold text-accent">
+      <a href={`mailto:${profile.email}`} class="link-underline inline-flex items-center gap-2 font-mono font-bold text-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 6.41a1.8 1.8 0 0 1-2.06 0L2 7"/>
+        </svg>
         {profile.email}
       </a>
     </div>
@@ -17,11 +21,22 @@ import { profile } from '../data/profile.js';
         href={profile.linkedin}
         target="_blank"
         rel="noreferrer"
-        class="link-underline font-bold text-accent"
+        class="link-underline inline-flex items-center gap-2 font-mono font-bold text-accent"
       >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect width="4" height="12" x="2" y="9"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
         LinkedIn
       </a>
     </div>
-    <div class="opacity-70">{profile.location}</div>
+    <div class="inline-flex items-center gap-2 font-mono opacity-70">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 10c0 6-8 11-8 11s-8-5-8-11a8 8 0 1 1 16 0Z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      <span>{profile.location}</span>
+    </div>
   </div>
 </section>

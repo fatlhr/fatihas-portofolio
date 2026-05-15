@@ -31,11 +31,15 @@ import {
       <div class="about-evidence">
         {experienceEvidence.map((experience) => (
           <article class="about-evidence__item">
-            <div>
+            <div class="about-evidence__meta">
               <h4>{experience.company}</h4>
-              <p>{experience.role} / {experience.period}</p>
+              <p class="about-evidence__role">{experience.role}</p>
+              <p class="about-evidence__period">{experience.period}</p>
             </div>
-            <p>{experience.proof}</p>
+            <div class="about-evidence__focus">
+              <span>Focus</span>
+              <p>{experience.proof}</p>
+            </div>
           </article>
         ))}
       </div>

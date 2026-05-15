@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <rect width="800" height="600" fill="#f8fafc" />
-  <rect x="40" y="40" width="720" height="520" rx="24" fill="#e2e8f0" />
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="38" fill="#1e293b">Project Preview</text>
+  <rect x="36" y="36" width="728" height="528" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <text x="60" y="84" font-family="IBM Plex Mono, monospace" font-size="22" fill="#0f172a">PROJECT EVIDENCE</text>
+  <text x="610" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#475569">BANK MAS</text>
+  <line x1="60" y1="108" x2="740" y2="108" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <text x="60" y="160" font-family="IBM Plex Mono, monospace" font-size="38" fill="#0f172a">Bebas &amp; BebasMaju</text>
+  <text x="60" y="204" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">loan flow / merchant QR / invoice / repayment</text>
+  <rect x="60" y="248" width="420" height="170" fill="#eff6ff" stroke="#93c5fd" />
+  <rect x="84" y="276" width="188" height="26" fill="#bfdbfe" />
+  <rect x="84" y="320" width="372" height="18" fill="#dbeafe" />
+  <rect x="84" y="350" width="328" height="18" fill="#dbeafe" />
+  <rect x="508" y="248" width="232" height="250" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="532" y="288" font-family="IBM Plex Mono, monospace" font-size="18" fill="#0f172a">focus</text>
+  <text x="532" y="328" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">approval tracking</text>
+  <text x="532" y="364" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">repayment handling</text>
+  <text x="532" y="400" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">invoice visibility</text>
+  <text x="532" y="436" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">merchant transaction</text>
 </svg>

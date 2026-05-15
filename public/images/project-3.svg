@@ -1,5 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <rect width="800" height="600" fill="#f8fafc" />
-  <rect x="40" y="40" width="720" height="520" rx="24" fill="#e2e8f0" />
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="38" fill="#1e293b">Project Preview</text>
+  <rect x="36" y="36" width="728" height="528" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <text x="60" y="84" font-family="IBM Plex Mono, monospace" font-size="22" fill="#0f172a">PROJECT EVIDENCE</text>
+  <text x="448" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#475569">BRI / SAGARA TECHNOLOGY</text>
+  <line x1="60" y1="108" x2="740" y2="108" stroke="#94a3b8" stroke-dasharray="6 6" />
+  <text x="60" y="160" font-family="IBM Plex Mono, monospace" font-size="38" fill="#0f172a">Campus Services App</text>
+  <text x="60" y="204" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">rental / library / crowdfunding / bank integration</text>
+  <rect x="60" y="248" width="216" height="250" fill="#f8fafc" stroke="#cbd5e1" />
+  <rect x="292" y="248" width="216" height="250" fill="#f8fafc" stroke="#cbd5e1" />
+  <rect x="524" y="248" width="216" height="250" fill="#eff6ff" stroke="#93c5fd" />
+  <text x="88" y="292" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">rental flow</text>
+  <text x="88" y="332" font-family="IBM Plex Mono, monospace" font-size="18" fill="#64748b">availability + booking</text>
+  <text x="320" y="292" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">library access</text>
+  <text x="320" y="332" font-family="IBM Plex Mono, monospace" font-size="18" fill="#64748b">catalog + borrowing</text>
+  <text x="552" y="292" font-family="IBM Plex Mono, monospace" font-size="20" fill="#334155">crowdfunding</text>
+  <text x="552" y="332" font-family="IBM Plex Mono, monospace" font-size="18" fill="#64748b">payment-linked module</text>
+  <text x="552" y="412" font-family="IBM Plex Mono, monospace" font-size="18" fill="#334155">integration focus</text>
+  <text x="552" y="448" font-family="IBM Plex Mono, monospace" font-size="18" fill="#334155">service flow + release</text>
 </svg>

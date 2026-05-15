@@ -7,14 +7,7 @@ import { projects } from '../data/projects.js';
   <h2 class="text-2xl font-bold tracking-wide mb-8">Projects</h2>
   <div class="space-y-6">
     {projects.map((project) => (
-      <ProjectCard
-        title={project.title}
-        description={project.description}
-        subtitle={project.company}
-        githubUrl={project.githubUrl}
-        imageUrl={project.imageUrl}
-        technologies={project.technologies}
-      />
+      <ProjectCard project={project} />
     ))}
   </div>
 </section>
