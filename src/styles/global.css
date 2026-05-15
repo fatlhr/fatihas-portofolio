@@ -65,9 +65,7 @@
   }
   .hero-document {
     border: 1px solid var(--color-border);
-    background:
-      linear-gradient(90deg, transparent 0 4.25rem, var(--color-border) 4.25rem calc(4.25rem + 1px), transparent calc(4.25rem + 1px)),
-      color-mix(in srgb, var(--color-bg) 94%, var(--color-accent) 6%);
+    background: color-mix(in srgb, var(--color-bg) 94%, var(--color-accent) 6%);
     @apply px-4 py-5 sm:px-6 sm:py-6;
   }
 
@@ -134,5 +132,94 @@
       border-top: 1px dashed var(--color-border);
       @apply pl-0 pt-5;
     }
+  }
+
+  .about-notes {
+    @apply space-y-10;
+  }
+
+  .about-notes__header {
+    @apply max-w-2xl;
+  }
+
+  .about-notes__header p:last-child {
+    @apply mb-0 mt-4 text-sm leading-relaxed opacity-80;
+  }
+
+  .about-notes__kicker {
+    color: var(--color-accent);
+    @apply mb-3 text-xs font-bold uppercase tracking-wide;
+  }
+
+  .about-notes__grid {
+    @apply grid gap-4 sm:grid-cols-2;
+  }
+
+  .about-note {
+    border: 1px solid var(--color-border);
+    @apply p-4;
+  }
+
+  .about-note span {
+    color: var(--color-accent);
+    @apply mb-4 block text-xs font-bold;
+  }
+
+  .about-note h3,
+  .about-notes__section h3,
+  .about-evidence__item h4,
+  .skill-cluster h4 {
+    @apply text-base font-bold;
+  }
+
+  .about-note p,
+  .about-evidence__item p,
+  .skill-cluster p,
+  .about-foundation,
+  .about-foundation__list {
+    @apply text-sm leading-relaxed;
+  }
+
+  .about-note p,
+  .about-foundation {
+    @apply mb-0 opacity-80;
+  }
+
+  .about-notes__section {
+    border-top: 1px dashed var(--color-border);
+    @apply pt-8;
+  }
+
+  .about-notes__section > h3 {
+    @apply mb-5;
+  }
+
+  .about-evidence {
+    @apply space-y-5;
+  }
+
+  .about-evidence__item {
+    @apply grid gap-2 sm:grid-cols-[14rem_minmax(0,1fr)];
+  }
+
+  .about-evidence__item p {
+    @apply mb-0 opacity-80;
+  }
+
+  .skill-clusters {
+    @apply grid gap-4 sm:grid-cols-2;
+  }
+
+  .skill-cluster {
+    border: 1px solid var(--color-border);
+    @apply p-4;
+  }
+
+  .skill-cluster p {
+    @apply mb-0 opacity-80;
+  }
+
+  .about-foundation__list {
+    @apply mt-4 list-disc space-y-1 pl-5 opacity-80;
   }
 }

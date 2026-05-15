@@ -1,35 +1,66 @@
 ---
-import { certifications, education, experiences, skills } from '../data/profile.js';
+import {
+  experienceEvidence,
+  learningFoundation,
+  operatingNotes,
+  skillGroups,
+} from '../data/profile.js';
 ---
 <section id="about" class="py-6">
-  <h2 class="text-2xl font-bold tracking-wide mb-8">About & Experience</h2>
-  
-  <div class="space-y-8 text-base leading-relaxed">
-    {experiences.map((experience) => (
-      <div>
-        <h3 class="font-bold">{experience.company}</h3>
-        <p class="text-sm italic mb-2 opacity-70">{experience.role} | {experience.period}</p>
-        <ul class="list-disc list-inside space-y-1 text-sm">
-          {experience.bullets.map((bullet) => <li>{bullet}</li>)}
-        </ul>
-      </div>
-    ))}
-  </div>
+  <div class="about-notes">
+    <div class="about-notes__header">
+      <p class="about-notes__kicker">About & Experience</p>
+      <h2 class="text-2xl font-bold tracking-wide">How I build mobile products</h2>
+      <p>
+        I build mobile features by connecting product flow, API behavior, state management, and release constraints. Most of my work sits around Flutter apps that need to be reliable across Android and iOS.
+      </p>
+    </div>
 
-  <div class="mt-10">
-    <h3 class="text-lg font-bold mb-3">Skills & Technologies</h3>
-    <p class="text-sm leading-relaxed">
-      {skills.join(', ')}.
-    </p>
-  </div>
-  
-  <div class="mt-8">
-    <h3 class="text-lg font-bold mb-3">Education & Certifications</h3>
-    <ul class="list-disc list-inside space-y-1 text-sm">
-      {education.map((item) => (
-        <li><span class="font-bold">{item.major}</span> - {item.school} ({item.period})</li>
+    <div class="about-notes__grid">
+      {operatingNotes.map((note, index) => (
+        <article class="about-note">
+          <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{note.title}</h3>
+          <p>{note.description}</p>
+        </article>
       ))}
-      {certifications.map((certification) => <li>{certification}</li>)}
-    </ul>
+    </div>
+
+    <div class="about-notes__section">
+      <h3>Selected experience evidence</h3>
+      <div class="about-evidence">
+        {experienceEvidence.map((experience) => (
+          <article class="about-evidence__item">
+            <div>
+              <h4>{experience.company}</h4>
+              <p>{experience.role} / {experience.period}</p>
+            </div>
+            <p>{experience.proof}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="about-notes__section">
+      <h3>Skills in practice</h3>
+      <div class="skill-clusters">
+        {skillGroups.map((group) => (
+          <div class="skill-cluster">
+            <h4>{group.label}</h4>
+            <p>{group.items.join(', ')}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="about-notes__section">
+      <h3>Learning foundation</h3>
+      <p class="about-foundation">{learningFoundation.text}</p>
+      <ul class="about-foundation__list">
+        {learningFoundation.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

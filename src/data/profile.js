@@ -16,8 +16,87 @@ export const heroHighlights = [
   'Flutter / Dart',
   'Android + iOS',
   'Banking + merchant apps',
-  'REST API + release work',
+  'Release-ready delivery',
 ];
+
+export const operatingNotes = [
+  {
+    title: 'Product flow first',
+    description:
+      'I start from user journey, business rules, empty states, error states, and API contract before polishing UI details.',
+  },
+  {
+    title: 'Release-ready delivery',
+    description:
+      'I care about build stability, device behavior, handoff quality, QA feedback, and the risks that appear near app release.',
+  },
+  {
+    title: 'Maintainable Flutter code',
+    description:
+      'I keep state management, API boundaries, local data, and UI structure readable enough for the next developer to continue.',
+  },
+  {
+    title: 'Cross-team implementation',
+    description:
+      'I work around backend, QA, product, and stakeholder constraints across banking, merchant, and internal workflow domains.',
+  },
+];
+
+export const experienceEvidence = [
+  {
+    company: 'Bank MAS',
+    role: 'Mobile Developer (Flutter)',
+    period: 'Apr 2023 - Present',
+    proof: 'Banking, lending, merchant payments, invoices, transaction tracking.',
+  },
+  {
+    company: 'Japfa',
+    role: 'Flutter Developer',
+    period: 'Nov 2022 - Dec 2023',
+    proof: 'Digital forms, workflow, notification, internal task management.',
+  },
+  {
+    company: 'BRI / Sagara',
+    role: 'Mobile Developer (Flutter)',
+    period: 'May 2022 - Nov 2022',
+    proof: 'Maintenance, refactor, library updates, security-related improvements.',
+  },
+  {
+    company: 'Freelance',
+    role: 'Mobile Developer',
+    period: 'Apr 2022 - Present',
+    proof: 'UI implementation and release readiness for client mobile projects.',
+  },
+];
+
+export const skillGroups = [
+  {
+    label: 'Mobile',
+    items: ['Flutter', 'Dart', 'Android', 'iOS', 'Swift'],
+  },
+  {
+    label: 'Architecture',
+    items: ['Riverpod', 'BLoC', 'local database', 'refactoring'],
+  },
+  {
+    label: 'Backend integration',
+    items: ['REST API', 'JSON', 'Firebase', 'MySQL', 'SQLite', 'NoSQL'],
+  },
+  {
+    label: 'Tools',
+    items: ['Git', 'Postman', 'Figma', 'VS Code', 'Xcode'],
+  },
+];
+
+export const learningFoundation = {
+  text: 'Information Systems student at Universitas Siber Asia, with an Informatics Management background from Politeknik Negeri Medan. Flutter certifications helped start the mobile path; production work shaped the rest.',
+  items: [
+    'Information Systems - Universitas Siber Asia (Nov 2024 - Present)',
+    'Informatics Management - Politeknik Negeri Medan (Sept 2018 - Oct 2021)',
+    'Flutter Mobile Development - Sanbercode (2021)',
+    'Flutter Mobile Development for Beginner - Dicoding (2021)',
+  ],
+};
 
 export const experiences = [
   {
