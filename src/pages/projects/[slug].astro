@@ -21,11 +21,39 @@ const visuals = (project.visuals ?? []).map((visual) => ({
 }));
 const showVisuals = !project.isInternal && visuals.length > 0;
 const projectLinks = project.projectLinks ?? [];
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fatiharahmat.dev';
+const projectUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const projectJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": project.title,
+  "description": project.description,
+  "url": projectUrl,
+  "applicationCategory": "MobileApplication",
+  "operatingSystem": "Android, iOS",
+  "author": {
+    "@type": "Person",
+    "name": "Fatiha Rahmat",
+    "url": siteUrl,
+  },
+  "contributor": {
+    "@type": "Organization",
+    "name": project.company,
+  },
+  "softwareVersion": "1.0",
+  "keywords": project.technologies.join(', '),
+  "screenshot": showVisuals
+    ? visuals.filter((v) => v.resolvedImageUrl).map((v) => v.resolvedImageUrl)
+    : undefined,
+};
 ---
 
 <BaseLayout
   title={`${project.title} - Fatiha Rahmat`}
   description={project.description}
+  jsonLd={projectJsonLd}
 >
   <section class="project-detail">
     <a href={withBasePath()} class="project-detail__back link-underline">
@@ -45,7 +73,7 @@ const projectLinks = project.projectLinks ?? [];
             <figure class="project-visuals__item">
               <div class:list={["project-visuals__frame", !visual.resolvedImageUrl && "project-visuals__frame--empty"]}>
                 {visual.resolvedImageUrl ? (
-                  <img src={visual.resolvedImageUrl} alt={`${visual.title} preview for ${project.title}`} />
+                  <img src={visual.resolvedImageUrl} alt={`${visual.title} preview for ${project.title}`} loading="lazy" width="400" height="300" />
                 ) : (
                   <div class="project-visuals__placeholder" aria-hidden="true">
                     <div></div>

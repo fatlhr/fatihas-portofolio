@@ -6,27 +6,56 @@ const blogs = [
   {
     title: "State Management in Flutter: Riverpod vs BLoC",
     date: "May 1, 2026",
+    pubDate: "2026-05-01",
     description: "A deep dive into choosing the right state management solution for your next scalable mobile app.",
     url: withBasePath('blogs/state-management-flutter')
   },
   {
     title: "Building Responsive UIs in Flutter",
     date: "April 15, 2026",
+    pubDate: "2026-04-15",
     description: "Best practices for making your Flutter applications look great on phones, tablets, and web.",
     url: "#"
   },
   {
     title: "CI/CD for Flutter Apps using GitHub Actions",
     date: "March 20, 2026",
+    pubDate: "2026-03-20",
     description: "Automate your build and deployment pipelines for Android and iOS.",
     url: "#"
   }
 ];
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fatiharahmat.dev';
+const blogsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Fatiha Rahmat's Blog",
+  "description": "Notes on Flutter, mobile engineering, Android, iOS, and app delivery.",
+  "url": `${siteUrl}${withBasePath('blogs/')}`,
+  "author": {
+    "@type": "Person",
+    "name": "Fatiha Rahmat",
+    "url": siteUrl,
+  },
+  "blogPost": blogs.map((blog) => ({
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": blog.description,
+    "datePublished": blog.pubDate,
+    "url": blog.url.startsWith('#') ? undefined : `${siteUrl}${blog.url}`,
+    "author": {
+      "@type": "Person",
+      "name": "Fatiha Rahmat",
+    },
+  })).filter((post) => post.url),
+};
 ---
 
 <BaseLayout
   title="Blogs - Fatiha Rahmat"
   description="Notes on Flutter, mobile engineering, Android, iOS, and app delivery from Fatiha Rahmat."
+  jsonLd={blogsJsonLd}
 >
   <section class="py-6">
     <h1 class="text-3xl font-bold mb-8 tracking-tight">Blogs</h1>

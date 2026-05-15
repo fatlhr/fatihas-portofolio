@@ -24,7 +24,34 @@ const {
 const faviconUrl = withBasePath('favicon.svg');
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fatiharahmat.dev';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
+const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('/images/og-card.png')}`;
+
+// Build breadcrumb JSON-LD from URL path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl,
+    },
+    ...pathSegments.map((segment, index) => ({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+      "item": `${siteUrl}/${pathSegments.slice(0, index + 1).join('/')}/`,
+    })),
+  ],
+};
+
+const combinedJsonLd = jsonLd
+  ? Array.isArray(jsonLd)
+    ? [...jsonLd, breadcrumbList]
+    : [jsonLd, breadcrumbList]
+  : breadcrumbList;
 ---
 
 <!doctype html>
@@ -34,7 +61,16 @@ const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Fatiha Rahmat" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Fatiha Rahmat" />
+    <meta name="msapplication-TileColor" content="#0a0a0a" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="id" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -43,18 +79,26 @@ const resolvedOgImage = ogImage ?? `${siteUrl}${withBasePath('favicon.svg')}`;
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Fatiha Rahmat" />
     <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="id_ID" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
+    <meta name="twitter:site" content="@fatiharahmat" />
 
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={faviconUrl} />
+    <link rel="icon" type="image/x-icon" href={withBasePath('favicon.ico')} />
+    <link rel="apple-touch-icon" sizes="180x180" href={withBasePath('/images/apple-touch-icon.png')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
 
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <script type="application/ld+json" set:html={JSON.stringify(combinedJsonLd)} />
 
     <script is:inline>
       const getPreferredTheme = () => {
