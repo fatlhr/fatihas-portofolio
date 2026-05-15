@@ -1,26 +1,21 @@
 ---
-import { currentFocus, currentRoles } from '../data/profile.js';
+import { nowNotes } from '../data/profile.js';
 ---
 
 <section id="now" class="py-6">
   <h2 class="text-2xl font-bold tracking-wide mb-8">Now</h2>
-  <p class="mb-6 text-base leading-relaxed">Current professional focus and activities.</p>
+  <p class="mb-6 max-w-2xl text-base leading-relaxed">
+    A short read on what I am shipping, what I am sharpening, and the kind of work I still like saying yes to.
+  </p>
   
   <div class="space-y-6">
-    <div>
-      <h3 class="text-lg font-bold mb-3">Current Roles</h3>
-      <ul class="list-disc list-inside space-y-2 text-base">
-        {currentRoles.map((role) => <li>{role}</li>)}
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-lg font-bold mb-3">Current Focus & Expertise</h3>
-      <ul class="list-disc list-inside space-y-2 text-base">
-        {currentFocus.map((focus) => <li>{focus}</li>)}
-      </ul>
-    </div>
+    {nowNotes.map((note) => (
+      <div>
+        <h3 class="text-lg font-bold mb-3">{note.label}</h3>
+        <p class="max-w-2xl text-base leading-relaxed mb-0">{note.text}</p>
+      </div>
+    ))}
   </div>
   
-  <p class="text-xs text-gray-500 mt-8 font-mono">Updated: May 10, 2026</p>
+  <p class="text-xs text-gray-500 mt-8 font-mono">Updated: May 15, 2026</p>
 </section>

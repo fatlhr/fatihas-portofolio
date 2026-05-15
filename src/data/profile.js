@@ -187,3 +187,18 @@ export const currentFocus = [
   'Firebase, local database usage, Git, Postman, Figma, and Xcode',
   'Codebase refactoring, library updates, and release readiness',
 ];
+
+export const nowNotes = [
+  {
+    label: 'Current work',
+    text: 'I am shipping mobile banking and merchant flows at Bank MAS, while still taking selected freelance work when the product scope is clear and the team moves fast.',
+  },
+  {
+    label: 'Current edge',
+    text: 'Right now I am leaning harder into release quality, clearer app architecture, and deeper iOS understanding on top of my day-to-day Flutter work.',
+  },
+  {
+    label: 'Open to',
+    text: 'I am still interested in mobile product work that needs execution strength around product flow, integration detail, and getting the app into a release-ready state.',
+  },
+];
